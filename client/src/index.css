@@ -1,3 +1,4 @@
+/* Design: Contemporary Editorial Waybill — warm paper, strong navy structure, disciplined signal ochre. */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -12,166 +13,149 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
-  --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --radius: 0.42rem;
+  --background: #f7f6f2;
+  --foreground: #12181f;
+  --card: #ffffff;
+  --card-foreground: #12181f;
+  --primary: #132a3d;
+  --primary-foreground: #ffffff;
+  --muted: #eeece6;
+  --muted-foreground: #6d7379;
+  --border: #e1dfd8;
+  --ring: #b8590a;
 }
 
-.dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+* { border-color: var(--border); }
+html { background: #f7f6f2; }
+body {
+  margin: 0;
+  color: #12181f;
+  background:
+    radial-gradient(circle at 12% 4%, rgba(184, 89, 10, 0.05), transparent 26rem),
+    linear-gradient(90deg, rgba(19, 42, 61, 0.025) 1px, transparent 1px),
+    #f7f6f2;
+  background-size: auto, 64px 64px, auto;
+  font-family: "Source Sans 3", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+button, input, select { font: inherit; }
+button:not(:disabled), select:not(:disabled), input:not(:disabled) { cursor: pointer; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid #b8590a; outline-offset: 3px; }
+
+.otm-app-shell { min-height: 100vh; }
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(19, 42, 61, 0.96);
+  backdrop-filter: blur(18px);
+}
+.top-bar-inner { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+.brand-mark-wrap { display: grid; place-items: center; width: 44px; height: 44px; flex: none; border: 1px solid rgba(255,255,255,0.28); background: rgba(247,246,242,0.96); box-shadow: 3px 3px 0 rgba(184,89,10,0.92); }
+.brand-mark-wrap img { width: 34px; height: 34px; object-fit: contain; }
+.brand-kicker { color: #d7a16f; font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.13em; }
+.brand-wordmark { margin-top: 1px; color: #fff; font-family: "DM Sans", "Noto Sans SC", sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -0.045em; }
+.top-status { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; color: #aebdca; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.08em; }
+.top-status strong { color: #f7f6f2; font-size: 11px; font-weight: 500; letter-spacing: 0.03em; }
+.progress-scrollbar::-webkit-scrollbar { height: 0; }
+.assessment-layout {
+  display: grid;
+  grid-template-columns: minmax(245px, 290px) minmax(0, 760px);
+  align-items: start;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  gap: clamp(24px, 5vw, 76px);
+  padding: 38px 0 64px;
+}
+.assessment-rail {
+  position: sticky;
+  top: 139px;
+  overflow: hidden;
+  min-height: 535px;
+  color: #f7f6f2;
+  border: 1px solid rgba(19, 42, 61, 0.18);
+  background: #132a3d;
+  box-shadow: 10px 12px 0 rgba(19, 42, 61, 0.1);
+}
+.assessment-rail::after {
+  position: absolute; inset: 0; content: ""; pointer-events: none;
+  background: linear-gradient(180deg, rgba(19, 42, 61, 0.23), rgba(19, 42, 61, 0.94) 74%);
+}
+.rail-image { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; opacity: 0.45; filter: saturate(0.68) contrast(1.1); }
+.rail-content { position: relative; z-index: 1; height: 100%; min-height: 535px; display: flex; flex-direction: column; padding: 26px; }
+.rail-eyebrow, .sheet-eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.rail-eyebrow { color: #d7a16f; }
+.rail-headline { margin: 11px 0 0; font-family: "DM Sans", "Noto Sans SC", sans-serif; font-size: 21px; font-weight: 700; line-height: 1.14; letter-spacing: -0.035em; }
+.rail-copy { margin: 8px 0 0; color: rgba(247,246,242,0.73); font-size: 13px; line-height: 1.5; }
+.rail-stage-list { margin-top: auto; display: grid; gap: 9px; }
+.rail-stage { display: flex; width: 100%; gap: 11px; align-items: center; padding: 4px 0; border: 0; background: transparent; color: rgba(247,246,242,0.48); font-family: "IBM Plex Mono", monospace; font-size: 11px; text-align: left; }
+.rail-stage:not(:disabled):hover { color: #fff; }
+.rail-stage-active { color: #fff; }
+.rail-stage-dot { display: grid; place-items: center; width: 21px; height: 21px; flex: none; border: 1px solid rgba(255,255,255,0.24); color: inherit; }
+.rail-stage-active .rail-stage-dot { border-color: #e5a167; background: #b8590a; color: white; }
+.rail-metric { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.17); display: flex; justify-content: space-between; align-items: end; }
+.rail-metric span { color: rgba(247,246,242,0.6); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; }
+.rail-metric strong { color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 24px; line-height: 1; }
+.assessment-sheet {
+  min-width: 0;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid #dfddd5;
+  box-shadow: 0 18px 50px rgba(18, 24, 31, 0.08);
+  padding: clamp(24px, 4vw, 44px);
+}
+.assessment-sheet::before { content: ""; display: block; height: 5px; width: 62px; margin-bottom: 20px; background: #b8590a; }
+.sheet-kicker { display: flex; justify-content: space-between; gap: 16px; align-items: center; margin-bottom: 19px; padding-bottom: 14px; border-bottom: 1px dashed #d8d5cc; color: #7c8188; }
+.sheet-kicker strong { color: #132a3d; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; }
+.assessment-sheet h1 { font-family: "DM Sans", "Noto Sans SC", sans-serif !important; font-size: clamp(26px, 3vw, 34px) !important; line-height: 1.06; letter-spacing: -0.048em; }
+.assessment-sheet h2 { font-family: "DM Sans", "Noto Sans SC", sans-serif; }
+.assessment-sheet button { transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease, border-color 160ms ease; }
+.assessment-sheet button:not(:disabled):hover { transform: translateY(-1px); }
+.assessment-sheet button:not(:disabled):active { transform: scale(0.98); }
+.assessment-sheet input[type="range"] { accent-color: #b8590a; }
+.assessment-sheet input[type="text"], .assessment-sheet select { border-radius: 4px; background: #fdfdfb !important; }
+.assessment-sheet table { font-size: 13px; }
+.assessment-sheet [class*="rounded"] { border-radius: 4px; }
+.manifest-section { position: relative; border: 1px solid #e1dfd8; border-radius: 0 !important; background: #fff; margin-bottom: 16px; padding: 0 14px 14px; }
+.manifest-section::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 38px; background: var(--section-accent, #132a3d); }
+.manifest-section-head { display: flex; align-items: center; gap: 9px; min-height: 48px; margin: 0 -14px 12px; padding: 0 14px; border-bottom: 1px dashed #d8d5cc; }
+.manifest-section-head h3 { font-family: "IBM Plex Mono", "Noto Sans SC", monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.025em; }
+.manifest-index { display: grid; place-items: center; width: 25px; height: 25px; background: #f1efe9; color: var(--section-accent, #132a3d); font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 600; }
+.manifest-row { position: relative; min-height: 42px; border: 0 !important; border-bottom: 1px solid #eceae4 !important; border-radius: 0 !important; padding: 10px 4px !important; }
+.manifest-row:last-child { border-bottom: 0 !important; }
+.manifest-row > span:first-child { border-radius: 0 !important; }
+.assessment-sheet label, .assessment-sheet thead, .assessment-sheet .text-xs.uppercase { font-family: "IBM Plex Mono", "Noto Sans SC", monospace; letter-spacing: 0.055em; }
+
+@media (max-width: 840px) {
+  .top-bar-inner { width: min(100% - 28px, 760px); }
+  .assessment-layout { display: block; width: min(100% - 28px, 760px); padding-top: 22px; }
+  .assessment-rail { position: relative; top: auto; min-height: 202px; margin-bottom: 20px; box-shadow: 6px 7px 0 rgba(19, 42, 61, 0.09); }
+  .rail-content { min-height: 202px; padding: 21px; }
+  .rail-stage-list { display: none; }
+  .rail-metric { margin-top: auto; }
+  .assessment-sheet { padding: 24px 19px; }
+  .top-status { display: none; }
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
-  }
+@media (max-width: 520px) {
+  .top-bar-inner { width: calc(100% - 24px); }
+  .assessment-layout { width: calc(100% - 24px); padding-bottom: 34px; }
+  .assessment-sheet { padding: 22px 16px; }
+  .assessment-sheet h1 { font-size: 27px !important; }
+  .rail-copy { display: none; }
+  .brand-kicker { font-size: 8px; }
+  .brand-wordmark { font-size: 15px; }
 }
 
-@layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
-  .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
-    padding-right: 1rem;
-  }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
-  @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
-      padding-right: 1.5rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem; /* 32px - desktop padding */
-      padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
-    }
-  }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
