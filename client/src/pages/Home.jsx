@@ -1,4 +1,4 @@
-/* Design: Titanium White Product Launch — quiet platinum surfaces, precise system typography, and restrained blue signals. */
+/* Design: Contemporary Editorial Waybill — deep navy structure, warm paper workspace, signal ochre for actionable value. */
 import React, { useState, useMemo } from "react";
 import {
   DollarSign, Zap, Truck, Brain, Globe, ChevronRight, ChevronLeft,
@@ -14,21 +14,21 @@ import {
 /* ---------------------------------------------------------------------- */
 
 const C = {
-  ink: "#1D1D1F",
-  lane: "#1D1D1F",
-  laneSoft: "#424245",
-  signal: "#0071E3",
-  signalSoft: "#E8F2FF",
-  paper: "#F5F5F7",
+  ink: "#12181F",
+  lane: "#132A3D",
+  laneSoft: "#1D3A52",
+  signal: "#B8590A",
+  signalSoft: "#F2E2D0",
+  paper: "#F7F6F2",
   card: "#FFFFFF",
-  line: "#D2D2D7",
-  mist: "#6E6E73",
-  gtm: "#0071E3",
-  gtmSoft: "#E8F2FF",
+  line: "#E1DFD8",
+  mist: "#7C8188",
+  gtm: "#4C3B6E",
+  gtmSoft: "#EFEBF5",
 };
 
-const MONO = "'SF Mono',ui-monospace,'Roboto Mono',monospace";
-const SANS = "-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue','Segoe UI','Noto Sans SC',sans-serif";
+const MONO = "'SF Mono','JetBrains Mono',ui-monospace,'Roboto Mono',monospace";
+const SANS = "-apple-system,'Segoe UI',ui-sans-serif,system-ui,sans-serif";
 const BRAND_MARK = "/manus-storage/otm-route-value-mark_e763ba61.png";
 const NETWORK_VISUAL = "/manus-storage/otm-network-discovery_edbaefb7.jpg";
 const TRADE_VISUAL = "/manus-storage/otm-trade-compliance_afe12dd1.jpg";
@@ -39,11 +39,11 @@ const CASE_VISUAL = "/manus-storage/otm-value-brief_3508d6d3.jpg";
 /* ---------------------------------------------------------------------- */
 
 const CATEGORIES = [
-  { id: "cost", Icon: DollarSign, accent: "#0071E3" },
-  { id: "efficiency", Icon: Zap, accent: "#0071E3" },
-  { id: "service", Icon: Truck, accent: "#0071E3" },
-  { id: "decision", Icon: Brain, accent: "#0071E3" },
-  { id: "complexity", Icon: Globe, accent: "#0071E3" },
+  { id: "cost", Icon: DollarSign, accent: "#B8590A" },
+  { id: "efficiency", Icon: Zap, accent: "#3C6E71" },
+  { id: "service", Icon: Truck, accent: "#1D6F8C" },
+  { id: "decision", Icon: Brain, accent: "#6B3F52" },
+  { id: "complexity", Icon: Globe, accent: "#55672F" },
 ];
 
 const PAIN_IDS = {
@@ -55,11 +55,11 @@ const PAIN_IDS = {
 };
 
 const GTM_CATEGORIES = [
-  { id: "risk", Icon: Shield, accent: "#0071E3" },
-  { id: "gtmeff", Icon: Clock, accent: "#0071E3" },
-  { id: "duty", Icon: Percent, accent: "#0071E3" },
-  { id: "audit", Icon: Search, accent: "#0071E3" },
-  { id: "gtmcx", Icon: Landmark, accent: "#0071E3" },
+  { id: "risk", Icon: Shield, accent: "#8C3A3A" },
+  { id: "gtmeff", Icon: Clock, accent: "#6B5B3E" },
+  { id: "duty", Icon: Percent, accent: "#8A6D1F" },
+  { id: "audit", Icon: Search, accent: "#4C3B6E" },
+  { id: "gtmcx", Icon: Landmark, accent: "#45586E" },
 ];
 
 const GTM_PAIN_IDS = {
@@ -1175,8 +1175,8 @@ export default function OTMValueAssessment() {
                 key={v}
                 onClick={() => setFreightSpend(v)}
                 style={{
-                  borderColor: freightSpend === v ? C.signal : C.line,
-                  backgroundColor: freightSpend === v ? C.signal : C.card,
+                  borderColor: freightSpend === v ? C.lane : C.line,
+                  backgroundColor: freightSpend === v ? C.lane : C.card,
                   color: freightSpend === v ? "#FFFFFF" : C.ink,
                   fontFamily: MONO,
                 }}
@@ -1287,12 +1287,12 @@ export default function OTMValueAssessment() {
               <button
                 key={lvl}
                 onClick={() => setMaturity(lvl)}
-                style={{ borderColor: isSel ? C.signal : C.line, backgroundColor: isSel ? C.signalSoft : C.card }}
+                style={{ borderColor: isSel ? C.lane : C.line, backgroundColor: isSel ? C.paper : C.card }}
                 className="w-full text-left p-3 rounded border transition"
               >
                 <div className="flex items-center gap-2">
                   <span
-                    style={{ backgroundColor: isSel ? C.signal : "#EDECE7", color: isSel ? "#FFFFFF" : C.mist, fontFamily: MONO }}
+                    style={{ backgroundColor: isSel ? C.lane : "#EDECE7", color: isSel ? "#FFFFFF" : C.mist, fontFamily: MONO }}
                     className="w-5 h-5 flex-shrink-0 rounded-full flex items-center justify-center text-xs font-bold"
                   >
                     {lvl}
@@ -1313,7 +1313,7 @@ export default function OTMValueAssessment() {
             </div>
             <div className="flex gap-1">
               {MATURITY_LEVELS.map((lvl) => (
-                <div key={lvl} style={{ backgroundColor: lvl <= maturity ? C.signal : "#EDECE7" }} className="flex-1 h-2.5 rounded-full relative">
+                <div key={lvl} style={{ backgroundColor: lvl <= maturity ? C.lane : "#EDECE7" }} className="flex-1 h-2.5 rounded-full relative">
                   {lvl === TARGET_MATURITY && (
                     <div style={{ backgroundColor: C.signal }} className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-4 rounded-full" />
                   )}
@@ -1623,11 +1623,10 @@ export default function OTMValueAssessment() {
       <header className="no-print top-bar">
         <div className="top-bar-inner flex items-center justify-between gap-4 py-3">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="brand-mark-wrap"><img src="/manus-storage/otm-precision-route-mark_4bb0bbd7.png" alt="" /></div>
+            <div className="brand-mark-wrap"><img src={BRAND_MARK} alt="" /></div>
             <div className="min-w-0">
               <div className="brand-kicker">OTM / VALUE PATH</div>
               <div className="brand-wordmark">{t("appTitle")}</div>
-              <div className="brand-route-lockup" aria-hidden="true"><span /><i /><span /><b /></div>
             </div>
           </div>
           <div className="flex items-center gap-5">
@@ -1657,7 +1656,7 @@ export default function OTMValueAssessment() {
                 </button>
               ))}
             </div>
-            <div className="rail-metric"><span>VALUE SIGNALS</span><strong>{String(selected.length + gtmSelected.length).padStart(2, "0")}</strong><em>{String(step + 1).padStart(2, "0")} / 05</em></div>
+            <div className="rail-metric"><span>VALUE SIGNALS</span><strong>{String(selected.length + gtmSelected.length).padStart(2, "0")}</strong></div>
           </div>
         </aside>
 
