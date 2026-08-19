@@ -26,6 +26,7 @@ const C = {
   gtm: "#4C3B6E",
   gtmSoft: "#EFEBF5",
 };
+const OTM_TARGET_MARKER = "#C4472D";
 
 const MONO = "'SF Mono','JetBrains Mono',ui-monospace,'Roboto Mono',monospace";
 const SANS = "-apple-system,'Segoe UI',ui-sans-serif,system-ui,sans-serif";
@@ -772,6 +773,64 @@ function VerdictCard({ verdict, t }) {
   );
 }
 
+const FIT_COPY = {
+  en: {
+    heading: "OTM Fit Scale", target: "OTM fit benchmark", current: "Current maturity",
+    below: { label: "Not yet fit for OTM", detail: "Your current maturity is below the typical OTM fit benchmark." },
+    at: { label: "Fit for OTM", detail: "Your current maturity matches the typical OTM fit benchmark." },
+    above: { label: "Highly fit for OTM", detail: "Your current maturity exceeds the typical OTM fit benchmark." },
+  },
+  es: {
+    heading: "Escala de Ajuste a OTM", target: "Referencia de ajuste a OTM", current: "Madurez actual",
+    below: { label: "Aún no apto para OTM", detail: "Su madurez actual está por debajo de la referencia típica de ajuste a OTM." },
+    at: { label: "Apto para OTM", detail: "Su madurez actual coincide con la referencia típica de ajuste a OTM." },
+    above: { label: "Muy apto para OTM", detail: "Su madurez actual supera la referencia típica de ajuste a OTM." },
+  },
+  zh: {
+    heading: "OTM 适配度刻度", target: "OTM 适配基准", current: "当前成熟度",
+    below: { label: "尚未适配 OTM", detail: "当前成熟度低于 OTM 的典型适配基准。" },
+    at: { label: "适配 OTM", detail: "当前成熟度与 OTM 的典型适配基准一致。" },
+    above: { label: "高度适配 OTM", detail: "当前成熟度超过 OTM 的典型适配基准。" },
+  },
+};
+
+function getFitAssessment(maturity, lang) {
+  const copy = FIT_COPY[lang] || FIT_COPY.en;
+  const status = maturity > TARGET_MATURITY ? "above" : maturity < TARGET_MATURITY ? "below" : "at";
+  return { ...copy, status, ...copy[status] };
+}
+
+function MaturityFitScale({ maturity, lang, t, tone = C.lane }) {
+  if (maturity === null) return null;
+  const fit = getFitAssessment(maturity, lang);
+  const statusColor = fit.status === "below" ? C.mist : fit.status === "at" ? C.signal : "#1F7A4D";
+  const statusBg = fit.status === "below" ? "#F1F1EE" : fit.status === "at" ? C.signalSoft : "#EBF5EE";
+  return (
+    <div style={{ borderColor: C.line, backgroundColor: C.card }} className="border rounded p-4">
+      <div className="flex items-start justify-between gap-3 mb-4">
+        <div>
+          <div style={{ color: C.ink }} className="text-sm font-bold">{fit.heading}</div>
+          <div style={{ color: C.mist, fontFamily: MONO }} className="text-xs mt-0.5">{fit.current}: {maturity} · {fit.target}: {TARGET_MATURITY}</div>
+        </div>
+        <span style={{ color: statusColor, backgroundColor: statusBg, borderColor: statusColor }} className="shrink-0 border rounded-full px-2.5 py-1 text-xs font-semibold">{fit.label}</span>
+      </div>
+      <div className="flex gap-1.5" aria-label={`${fit.current} ${maturity}; ${fit.target} ${TARGET_MATURITY}`}>
+        {MATURITY_LEVELS.map((lvl) => (
+          <div key={lvl} className="relative flex-1">
+            <div style={{ backgroundColor: lvl <= maturity ? tone : "#EDECE7" }} className="h-3 rounded-full" />
+            <span style={{ color: lvl <= maturity ? C.card : C.mist, fontFamily: MONO }} className="absolute inset-0 flex items-center justify-center text-[9px] font-bold">{lvl}</span>
+            {lvl === TARGET_MATURITY && <span title={fit.target} style={{ backgroundColor: OTM_TARGET_MARKER }} className="absolute -top-2 left-1/2 h-7 w-1 -translate-x-1/2 rounded-full" />}
+          </div>
+        ))}
+      </div>
+      <div className="flex items-start gap-2 mt-3">
+        <span style={{ backgroundColor: OTM_TARGET_MARKER }} className="mt-1.5 h-2 w-2 shrink-0 rounded-full" />
+        <p style={{ color: C.mist }} className="text-xs leading-relaxed"><strong style={{ color: C.ink }}>{fit.target}</strong>：{fit.detail}</p>
+      </div>
+    </div>
+  );
+}
+
 /* ---------------------------------------------------------------------- */
 /* MAIN COMPONENT                                                          */
 /* ---------------------------------------------------------------------- */
@@ -1305,23 +1364,7 @@ export default function OTMValueAssessment() {
           })}
         </div>
 
-        {maturity !== null && (
-          <div className="mb-6">
-            <div style={{ color: C.mist, fontFamily: MONO }} className="flex justify-between text-xs mb-1.5">
-              <span>{t("currentLabel")}: {maturity}</span>
-              <span>{t("targetLabel")}: {TARGET_MATURITY}</span>
-            </div>
-            <div className="flex gap-1">
-              {MATURITY_LEVELS.map((lvl) => (
-                <div key={lvl} style={{ backgroundColor: lvl <= maturity ? C.lane : "#EDECE7" }} className="flex-1 h-2.5 rounded-full relative">
-                  {lvl === TARGET_MATURITY && (
-                    <div style={{ backgroundColor: C.signal }} className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-4 rounded-full" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        {maturity !== null && <div className="mb-6"><MaturityFitScale maturity={maturity} lang={lang} t={t} /></div>}
 
         {maturity !== null && (
           <div className="mb-2">
@@ -1363,7 +1406,7 @@ export default function OTMValueAssessment() {
               <div className="flex gap-1">
                 {MATURITY_LEVELS.map((lvl) => (
                   <div key={lvl} style={{ backgroundColor: lvl <= gtmMaturity ? C.gtm : "#EDECE7" }} className="flex-1 h-2.5 rounded-full relative">
-                    {lvl === TARGET_MATURITY && <div style={{ backgroundColor: C.signal }} className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-4 rounded-full" />}
+                    {lvl === TARGET_MATURITY && <div style={{ backgroundColor: OTM_TARGET_MARKER }} className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-4 rounded-full" />}
                   </div>
                 ))}
               </div>
@@ -1413,6 +1456,27 @@ export default function OTMValueAssessment() {
         <p style="color:${C.mist};font-size:11px;margin-top:10px;">${t("disclaimerText")} ${t("complexityNote")}</p>
       `;
     };
+    const maturityScaleHtml = (level, prefix = "") => {
+      if (level === null) return "";
+      const fit = getFitAssessment(level, lang);
+      const statusColor = fit.status === "below" ? C.mist : fit.status === "at" ? C.signal : "#1F7A4D";
+      const statusBg = fit.status === "below" ? "#F1F1EE" : fit.status === "at" ? C.signalSoft : "#EBF5EE";
+      const scaleCells = MATURITY_LEVELS.map((lvl) => `
+        <div style="position:relative;flex:1;text-align:center;">
+          <div style="height:16px;border-radius:999px;background:${lvl <= level ? C.lane : "#EDECE7"};"></div>
+          <span style="position:absolute;top:2px;left:0;right:0;color:${lvl <= level ? "#FFFFFF" : C.mist};font-size:9px;font-weight:700;font-family:ui-monospace,monospace;">${lvl}</span>
+          ${lvl === TARGET_MATURITY ? `<span title="${fit.target}" style="position:absolute;top:-7px;left:50%;width:4px;height:30px;transform:translateX(-50%);border-radius:999px;background:${OTM_TARGET_MARKER};"></span>` : ""}
+        </div>`).join("");
+      return `
+        <section style="border:1px solid ${C.line};border-radius:6px;padding:14px;margin:18px 0;background:#FFFFFF;">
+          <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:13px;">
+            <div><div style="font-size:13px;font-weight:700;color:${C.ink};">${prefix}${fit.heading}</div><div style="font-size:11px;color:${C.mist};margin-top:3px;">${fit.current}: ${level} &nbsp;·&nbsp; ${fit.target}: ${TARGET_MATURITY}</div></div>
+            <span style="font-size:11px;font-weight:700;color:${statusColor};background:${statusBg};border:1px solid ${statusColor};border-radius:999px;padding:5px 8px;white-space:nowrap;">${fit.label}</span>
+          </div>
+          <div style="display:flex;gap:5px;">${scaleCells}</div>
+          <p style="font-size:11px;color:${C.mist};margin:12px 0 0;"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${OTM_TARGET_MARKER};margin-right:6px;"></span><strong style="color:${C.ink};">${fit.target}</strong>：${fit.detail}</p>
+        </section>`;
+    };
     const gtmHtml = gtmEnabled
       ? `
         <hr style="border:none;border-top:1px dashed ${C.line};margin:28px 0;" />
@@ -1422,6 +1486,7 @@ export default function OTMValueAssessment() {
           <div style="border:1px solid ${C.line};border-radius:6px;padding:10px;"><div style="color:${C.mist};font-size:11px;">${t("dutySpendLabel")}</div><div style="font-weight:600;">${fmtUSD(dutySpend)}</div></div>
           <div style="border:1px solid ${C.line};border-radius:6px;padding:10px;"><div style="color:${C.mist};font-size:11px;">${t("currentLabel")}</div><div style="font-weight:600;">${gtmMaturity ? t(`gm${gtmMaturity}_title`) : "\u2014"}</div></div>
         </div>
+        ${maturityScaleHtml(gtmMaturity, "GTM · ")}
         ${benefitsHtml(GTM_STRATEGIC_BENEFITS)}
       `
       : "";
@@ -1439,7 +1504,8 @@ export default function OTMValueAssessment() {
 <body>
   <h1>${t("step4Title")}</h1>
   <p style="color:${C.mist};font-size:12px;">${t("dateGenerated")}: ${new Date().toLocaleDateString(locale)}</p>
-  <div style="background:${verdict === "strong" ? "#EBF5EE" : verdict === "potential" ? C.signalSoft : "#F1F1EE"};border:1px solid ${C.line};border-radius:6px;padding:16px;margin:16px 0;">
+  <h2 style="color:${C.mist};font-size:12px;text-transform:uppercase;letter-spacing:0.05em;margin-top:18px;">Business Case Conclusion</h2>
+  <div style="background:${verdict === "strong" ? "#EBF5EE" : verdict === "potential" ? C.signalSoft : "#F1F1EE"};border:1px solid ${C.line};border-radius:6px;padding:16px;margin:10px 0 16px;">
     <strong style="font-size:15px;">${t(`verdict_${verdict}_title`)}</strong>
     <p style="margin:8px 0;">${t(`verdict_${verdict}_desc`)}</p>
     <p style="font-style:italic;color:${C.mist};">${t(`verdict_${verdict}_next`)}</p>
@@ -1452,6 +1518,7 @@ export default function OTMValueAssessment() {
     <div style="border:1px solid ${C.line};border-radius:6px;padding:10px;"><div style="color:${C.mist};font-size:11px;">${t("currentLabel")}</div><div style="font-weight:600;">${maturity ? t(`m${maturity}_title`) : "\u2014"}</div></div>
     <div style="border:1px solid ${C.line};border-radius:6px;padding:10px;"><div style="color:${C.mist};font-size:11px;">${t("profileChallengesLabel")}</div><div style="font-weight:600;">${numChallenges}</div></div>
   </div>
+  ${maturityScaleHtml(maturity)}
   <h2 style="color:${C.mist};font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">${t("valueOpportunityLabel")}</h2>
   ${valueBlockHtml(results, totalLow, totalHigh, "noDriversText")}
   <h2 style="color:${C.mist};font-size:12px;text-transform:uppercase;letter-spacing:0.05em;margin-top:20px;">${t("strategicBenefitsLabel")}</h2>
@@ -1514,6 +1581,12 @@ export default function OTMValueAssessment() {
             </div>
           )}
         </div>
+
+        {maturity !== null && (
+          <div className="mb-6">
+            <MaturityFitScale maturity={maturity} lang={lang} t={t} />
+          </div>
+        )}
 
         <div className="mb-6">
           <h2 style={{ color: C.mist }} className="text-xs font-semibold uppercase tracking-wide mb-3">{t("companyProfileLabel")}</h2>
