@@ -3,7 +3,7 @@ import React, { useState, useMemo } from "react";
 import {
   DollarSign, Zap, Truck, Brain, Globe, ChevronRight, ChevronLeft,
   Check, Printer, RotateCcw, ArrowRight, CheckCircle2, AlertCircle,
-  XCircle, Info, Shield, Clock, Percent, Search, Landmark
+  XCircle, Info, Shield, Clock, Percent, Search, Landmark, Sparkles, Send, MessageSquare
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
@@ -72,6 +72,98 @@ const GTM_PAIN_IDS = {
 };
 
 const GTM_TRIGGER_PAIN_ID = "cx_2";
+
+const BOB_COPY = {
+  en: {
+    label: "Bob AI · Discovery Copilot",
+    title: "Describe what is slowing your transportation operation down.",
+    intro: "I will turn your words into OTM value signals, then ask only the next question that matters.",
+    placeholder: "For example: We pay for too many expedited shipments and planners rebuild plans in spreadsheets every day.",
+    analyze: "Identify value signals",
+    applying: "Add to assessment",
+    demo: "Bob AI discovery workflow",
+    evidence: "Signals Bob identified",
+    noSignals: "I need one concrete operational symptom to map it to an OTM value driver.",
+    question: "Recommended follow-up",
+    ready: "Ready for a Bob AI connection",
+    applied: "Added to your assessment",
+    suggestion: "Try: “We use Excel to plan shipments and keep paying for expedited freight.”",
+  },
+  es: {
+    label: "Bob AI · Copiloto de Descubrimiento",
+    title: "Describa qué está frenando su operación de transporte.",
+    intro: "Convertiré sus palabras en señales de valor de OTM y haré solo la siguiente pregunta importante.",
+    placeholder: "Por ejemplo: Pagamos demasiados envíos urgentes y los planificadores reconstruyen planes en hojas de cálculo cada día.",
+    analyze: "Identificar señales de valor",
+    applying: "Agregar a la evaluación",
+    demo: "Flujo de descubrimiento Bob AI",
+    evidence: "Señales identificadas por Bob",
+    noSignals: "Necesito un síntoma operativo concreto para asociarlo a un impulsor de valor de OTM.",
+    question: "Seguimiento recomendado",
+    ready: "Listo para una conexión con Bob AI",
+    applied: "Agregado a su evaluación",
+    suggestion: "Pruebe: “Usamos Excel para planificar envíos y seguimos pagando fletes urgentes.”",
+  },
+  zh: {
+    label: "Bob AI · 价值发现助手",
+    title: "请描述现在最拖慢运输运营的一件事。",
+    intro: "我会将你的描述转换为 OTM 价值信号，并只提出最值得继续确认的问题。",
+    placeholder: "例如：我们加急运输越来越多，计划人员每天都在 Excel 里反复修改运输计划。",
+    analyze: "识别价值信号",
+    applying: "加入评估",
+    demo: "Bob AI Discovery 工作流",
+    evidence: "Bob 已识别的信号",
+    noSignals: "请补充一个具体的运营现象，我才能将它对应到 OTM 的价值驱动。",
+    question: "建议继续确认",
+    ready: "已准备连接 Bob AI",
+    applied: "已加入当前评估",
+    suggestion: "可以试试：我们用 Excel 规划运输，而且一直在支付加急运费。",
+  },
+};
+
+function getBobSignals(input) {
+  const text = input.toLowerCase();
+  const rules = [
+    { id: "cost_3", test: /加急|紧急|premium|expedit|rush|urgent/ },
+    { id: "cost_5", test: /滞箱|滞港|附加费|detention|demurrage|accessorial/ },
+    { id: "eff_1", test: /手动计划|人工计划|manual.*plan|manually.*plan|手工创建/ },
+    { id: "eff_2", test: /excel|spreadsheet|邮件|email|phone|电话|表格/ },
+    { id: "eff_3", test: /审计|audit|付款|payment|invoice/ },
+    { id: "svc_2", test: /可见性|追踪|跟踪|visibility|tracking|track/ },
+    { id: "svc_4", test: /异常|投诉|complain|exception|late.*discover/ },
+    { id: "dec_1", test: /不清楚.*成本|看不到.*钱|unclear.*cost|where.*spend/ },
+    { id: "cx_2", test: /多国|海关|关税|country|customs|currency|跨境/ },
+  ];
+  return rules.filter((rule) => rule.test.test(text)).map((rule) => rule.id);
+}
+
+function getBobQuestion(signalIds, lang) {
+  const questions = {
+    en: {
+      cost_3: "Roughly what percentage of annual freight spend is expedited or premium?",
+      eff_2: "How many planner hours per week go into spreadsheets, email, and manual changes?",
+      svc_2: "How long does it typically take to discover an in-transit exception?",
+      cx_2: "How many countries, currencies, or customs regimes does the operation cover?",
+      default: "Which of these issues creates the largest cost or customer impact today?",
+    },
+    es: {
+      cost_3: "¿Qué porcentaje aproximado del gasto anual en flete corresponde a envíos urgentes o premium?",
+      eff_2: "¿Cuántas horas por semana dedican los planificadores a hojas de cálculo, correos y cambios manuales?",
+      svc_2: "¿Cuánto tardan normalmente en descubrir una excepción durante el tránsito?",
+      cx_2: "¿Cuántos países, monedas o regímenes aduaneros cubre la operación?",
+      default: "¿Cuál de estos problemas tiene hoy el mayor impacto en costo o cliente?",
+    },
+    zh: {
+      cost_3: "加急或高价运输大约占全年运费的百分之多少？",
+      eff_2: "计划人员每周花多少时间在 Excel、邮件和手动变更上？",
+      svc_2: "运输异常发生后，通常多久才能被发现？",
+      cx_2: "目前的运营覆盖多少个国家、币种或海关监管体系？",
+      default: "这些问题中，哪一项目前对成本或客户体验影响最大？",
+    },
+  };
+  const copy = questions[lang] || questions.en;
+  return copy[signalIds[0]] || copy.default;
+}
 
 const INDUSTRY_IDS = ["ind_manuf", "ind_retail", "ind_energy", "ind_travel", "ind_tech", "ind_food", "ind_other"];
 const MATURITY_LEVELS = [1, 2, 3, 4, 5];
@@ -847,6 +939,10 @@ export default function OTMValueAssessment() {
   const [gtmSelected, setGtmSelected] = useState([]);
   const [dutySpend, setDutySpend] = useState(5000000);
   const [gtmMaturity, setGtmMaturity] = useState(null);
+  const [bobInput, setBobInput] = useState("");
+  const [bobSignalIds, setBobSignalIds] = useState([]);
+  const [bobAnalyzed, setBobAnalyzed] = useState(false);
+  const [bobApplied, setBobApplied] = useState(false);
 
   const t = (key) => (T[lang] && T[lang][key] !== undefined ? T[lang][key] : key);
 
@@ -922,6 +1018,15 @@ export default function OTMValueAssessment() {
 
   function toggleSelected(id) {
     setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+  }
+  function analyzeBobInput() {
+    setBobSignalIds(getBobSignals(bobInput));
+    setBobAnalyzed(true);
+    setBobApplied(false);
+  }
+  function applyBobSignals() {
+    setSelected((prev) => Array.from(new Set([...prev, ...bobSignalIds])));
+    setBobApplied(true);
   }
   function toggleGtmSelected(id) {
     setGtmSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
@@ -1026,10 +1131,67 @@ export default function OTMValueAssessment() {
 
   /* ---- STEP 0 ---- */
   function renderStep0() {
+    const bob = BOB_COPY[lang] || BOB_COPY.en;
     return (
       <div>
         <h1 style={{ color: C.ink, fontFamily: SANS }} className="text-2xl font-bold mb-1 tracking-tight">{t("step0Title")}</h1>
         <p style={{ color: C.mist }} className="text-sm mb-6">{t("step0Sub")}</p>
+
+        <section className="bob-intake-memo mb-6">
+          <div className="bob-memo-header">
+            <div className="flex items-center gap-2">
+              <span style={{ backgroundColor: C.signal }} className="flex h-7 w-7 items-center justify-center rounded"><Sparkles size={14} color="white" /></span>
+              <div>
+                <div className="text-white text-sm font-bold">{bob.label}</div>
+                <div className="text-white/55 text-[10px] uppercase tracking-[0.16em]" style={{ fontFamily: MONO }}>{bob.demo}</div>
+              </div>
+              <span className="bob-memo-stamp ml-auto flex items-center gap-1" style={{ fontFamily: MONO }}><MessageSquare size={11} /> {bob.ready}</span>
+            </div>
+          </div>
+          <div className="bob-memo-body">
+            <div className="bob-memo-label" style={{ fontFamily: MONO }}>INTAKE NOTE / VALUE SIGNAL CAPTURE</div>
+            <h2 style={{ color: C.ink }} className="max-w-xl text-lg font-semibold tracking-tight">{bob.title}</h2>
+            <p style={{ color: C.mist }} className="max-w-2xl text-sm leading-relaxed mt-1.5">{bob.intro}</p>
+            <div className="bob-entry mt-4 rounded p-3">
+              <textarea
+                value={bobInput}
+                onChange={(event) => { setBobInput(event.target.value); setBobAnalyzed(false); setBobApplied(false); }}
+                placeholder={bob.placeholder}
+                rows={3}
+                className="w-full resize-y bg-transparent text-sm outline-none"
+                style={{ color: C.ink }}
+              />
+              <div className="mt-2 flex flex-wrap items-center justify-between gap-2 border-t pt-2" style={{ borderColor: C.line }}>
+                <span style={{ color: C.mist }} className="text-xs italic">{bob.suggestion}</span>
+                <button onClick={analyzeBobInput} disabled={!bobInput.trim()} style={{ backgroundColor: bobInput.trim() ? C.signal : "#5E6B75" }} className="flex items-center gap-1.5 rounded px-3 py-2 text-xs font-semibold text-white disabled:cursor-not-allowed">
+                  <Send size={13} /> {bob.analyze}
+                </button>
+              </div>
+            </div>
+
+            {bobAnalyzed && (
+              <div style={{ backgroundColor: C.card, borderColor: C.line }} className="mt-3 rounded border p-3">
+                {bobSignalIds.length > 0 ? (
+                  <>
+                    <div style={{ color: C.mist, fontFamily: MONO }} className="text-[10px] uppercase tracking-wide">{bob.evidence}</div>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {bobSignalIds.map((id) => <span key={id} style={{ backgroundColor: C.signalSoft, color: C.signal, borderColor: "#E3C296" }} className="border rounded-full px-2.5 py-1 text-xs font-medium">{t(id)}</span>)}
+                    </div>
+                    <div style={{ borderColor: C.line }} className="mt-3 border-t pt-3">
+                      <div style={{ color: C.mist, fontFamily: MONO }} className="text-[10px] uppercase tracking-wide">{bob.question}</div>
+                      <p style={{ color: C.ink }} className="mt-1 text-sm font-medium">{getBobQuestion(bobSignalIds, lang)}</p>
+                    </div>
+                    <button onClick={applyBobSignals} style={{ backgroundColor: bobApplied ? C.laneSoft : C.signal }} className="mt-3 flex items-center gap-1.5 rounded px-3 py-2 text-xs font-semibold text-white">
+                      <Check size={13} /> {bobApplied ? bob.applied : `${bob.applying} · ${bobSignalIds.length}`}
+                    </button>
+                  </>
+                ) : (
+                  <p style={{ color: C.ink }} className="text-sm">{bob.noSignals}</p>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
 
         <div
           style={{
@@ -1698,8 +1860,9 @@ export default function OTMValueAssessment() {
           <div className="flex min-w-0 items-center gap-3">
             <div className="brand-mark-wrap"><img src={BRAND_MARK} alt="" /></div>
             <div className="min-w-0">
-              <div className="brand-kicker">OTM / VALUE PATH</div>
+              <div className="brand-kicker">OTM / ORACLE TRANSPORTATION MANAGEMENT</div>
               <div className="brand-wordmark">{t("appTitle")}</div>
+              <div className="brand-route-node" aria-hidden="true"><i /><span /><b /></div>
             </div>
           </div>
           <div className="flex items-center gap-5">

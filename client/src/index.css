@@ -65,6 +65,10 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
 .brand-mark-wrap img { width: 34px; height: 34px; object-fit: contain; }
 .brand-kicker { color: #d7a16f; font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.13em; }
 .brand-wordmark { margin-top: 1px; color: #fff; font-family: "DM Sans", "Noto Sans SC", sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -0.045em; }
+.brand-route-node { display: flex; align-items: center; gap: 3px; height: 7px; margin-top: 3px; }
+.brand-route-node i { width: 11px; height: 1px; background: rgba(247,246,242,0.55); }
+.brand-route-node span { width: 7px; height: 7px; border: 1px solid rgba(247,246,242,0.56); border-radius: 50%; }
+.brand-route-node b { width: 6px; height: 6px; border-radius: 50%; background: #b8590a; box-shadow: 0 0 0 2px rgba(184,89,10,0.22); }
 .top-status { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; color: #aebdca; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.08em; }
 .top-status strong { color: #f7f6f2; font-size: 11px; font-weight: 500; letter-spacing: 0.03em; }
 .progress-scrollbar::-webkit-scrollbar { height: 0; }
@@ -125,6 +129,14 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
 .assessment-sheet input[type="text"], .assessment-sheet select { border-radius: 4px; background: #fdfdfb !important; }
 .assessment-sheet table { font-size: 13px; }
 .assessment-sheet [class*="rounded"] { border-radius: 4px; }
+.bob-intake-memo { position: relative; overflow: hidden; border: 1px solid #d8d5cc; background: #f6f5f1; box-shadow: 4px 5px 0 rgba(19,42,61,0.08); }
+.bob-intake-memo::before { position: absolute; z-index: 2; top: 0; left: 0; width: 5px; height: 44px; content: ""; background: #b8590a; }
+.bob-memo-header { padding: 10px 14px 10px 18px; border-bottom: 1px solid rgba(255,255,255,0.12); background: #132a3d; background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 42px 100%; }
+.bob-memo-stamp { color: rgba(247,246,242,0.55); font-size: 9px; letter-spacing: 0.07em; }
+.bob-memo-body { padding: 16px 18px 18px; background: linear-gradient(90deg, rgba(19,42,61,0.028) 1px, transparent 1px), #f6f5f1; background-size: 28px 28px; }
+.bob-memo-label { margin-bottom: 7px; color: #b8590a; font-size: 9px; font-weight: 600; letter-spacing: 0.09em; }
+.bob-entry { border: 1px solid #d8d5cc; background: rgba(255,255,255,0.88); box-shadow: inset 0 1px 0 rgba(255,255,255,0.8); }
+.bob-entry textarea::placeholder { color: #8c9195; }
 .manifest-section { position: relative; border: 1px solid #e1dfd8; border-radius: 0 !important; background: #fff; margin-bottom: 16px; padding: 0 14px 14px; }
 .manifest-section::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 38px; background: var(--section-accent, #132a3d); }
 .manifest-section-head { display: flex; align-items: center; gap: 9px; min-height: 48px; margin: 0 -14px 12px; padding: 0 14px; border-bottom: 1px dashed #d8d5cc; }
@@ -154,6 +166,8 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
   .rail-copy { display: none; }
   .brand-kicker { font-size: 8px; }
   .brand-wordmark { font-size: 15px; }
+  .brand-route-node { display: none; }
+  .bob-memo-stamp { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
