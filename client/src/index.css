@@ -65,10 +65,10 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
 .brand-mark-wrap img { width: 34px; height: 34px; object-fit: contain; }
 .brand-kicker { color: #d7a16f; font-family: "IBM Plex Mono", monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.13em; }
 .brand-wordmark { margin-top: 1px; color: #fff; font-family: "DM Sans", "Noto Sans SC", sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -0.045em; }
-.brand-route-node { display: flex; align-items: center; gap: 3px; height: 7px; margin-top: 3px; }
-.brand-route-node i { width: 11px; height: 1px; background: rgba(247,246,242,0.55); }
-.brand-route-node span { width: 7px; height: 7px; border: 1px solid rgba(247,246,242,0.56); border-radius: 50%; }
-.brand-route-node b { width: 6px; height: 6px; border-radius: 50%; background: #b8590a; box-shadow: 0 0 0 2px rgba(184,89,10,0.22); }
+.brand-route-node { display: flex; align-items: center; gap: 3px; height: 8px; margin-top: 3px; }
+.brand-route-node i { width: 15px; height: 1px; background: rgba(247,246,242,0.68); }
+.brand-route-node span { width: 7px; height: 7px; border: 1px solid rgba(247,246,242,0.7); transform: rotate(45deg); }
+.brand-route-node b { width: 7px; height: 7px; background: #b8590a; box-shadow: 0 0 0 2px rgba(184,89,10,0.22); }
 .top-status { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; color: #aebdca; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.08em; }
 .top-status strong { color: #f7f6f2; font-size: 11px; font-weight: 500; letter-spacing: 0.03em; }
 .progress-scrollbar::-webkit-scrollbar { height: 0; }
@@ -137,6 +137,35 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
 .bob-memo-label { margin-bottom: 7px; color: #b8590a; font-size: 9px; font-weight: 600; letter-spacing: 0.09em; }
 .bob-entry { border: 1px solid #d8d5cc; background: rgba(255,255,255,0.88); box-shadow: inset 0 1px 0 rgba(255,255,255,0.8); }
 .bob-entry textarea::placeholder { color: #8c9195; }
+.assessment-decision-strip { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:11px 0 13px 13px; border-top:1px dashed #d8d5cc; border-bottom:1px dashed #d8d5cc; border-left:3px solid #b8590a; }
+.assessment-decision-strip > div:first-child { display:flex; align-items:baseline; flex-wrap:wrap; gap:9px; min-width:0; }
+.assessment-decision-strip span { color:#7c8188; font-family:"IBM Plex Mono", "Noto Sans SC", monospace; font-size:9px; font-weight:600; letter-spacing:.08em; }
+.assessment-decision-strip strong { color:#132a3d; font-size:12px; font-weight:600; line-height:1.4; }
+.assessment-signal-count { display:grid; justify-items:end; gap:2px; min-width:92px; padding-left:16px; border-left:1px solid #d8d5cc; }
+.assessment-signal-count b { color:#b8590a; font-family:"IBM Plex Mono", monospace; font-size:22px; line-height:1; }
+.bob-report-summary { border:1px solid #d8d5cc; border-left:4px solid #b8590a; background:#f7f6f2; padding:15px; }
+.bob-report-heading { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding-bottom:10px; border-bottom:1px dashed #d8d5cc; }
+.bob-report-heading span, .bob-report-summary > div > span, .bob-report-grid span { color:#7c8188; font-family:"IBM Plex Mono", "Noto Sans SC", monospace; font-size:9px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; }
+.bob-report-heading strong { color:#132a3d; font-size:13px; }
+.bob-report-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:12px 0; }
+.bob-report-grid p, .bob-report-verdict p, .bob-report-paths p { margin:4px 0 0; color:#12181f; font-size:12px; line-height:1.55; }
+.bob-report-verdict, .bob-report-paths { padding-top:11px; border-top:1px dashed #d8d5cc; }
+.bob-report-paths p { padding:6px 0; border-bottom:1px solid #e5e3dc; }
+.bob-report-paths strong { color:#132a3d; font-size:12px; }
+.bob-report-paths em { display:block; color:#7c8188; font-size:11px; font-style:normal; }
+.bob-diagnostic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bob-diagnostic-cell { min-width: 0; padding: 11px; border-top: 2px solid #d8d5cc; background: #f7f6f2; }
+.bob-diagnostic-cell:first-child { border-top-color: #b8590a; }
+.bob-diagnostic-label, .bob-mini-label { color: #7c8188; font-family: "IBM Plex Mono", "Noto Sans SC", monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.075em; text-transform: uppercase; }
+.bob-diagnostic-cell p, .bob-question-block p, .bob-confirmed-diagnostic p, .bob-confirmed-diagnostic li, .bob-pathway p { margin: 5px 0 0; color: #12181f; font-size: 12px; line-height: 1.55; }
+.bob-question-block { padding: 11px 0 0; border-top: 1px dashed #d8d5cc; }
+.bob-confirmed-diagnostic { padding: 14px; border: 1px solid #d8d5cc; border-left: 4px solid #b8590a; background: #f7f6f2; }
+.bob-confirmed-diagnostic ul { margin: 6px 0 0; padding-left: 16px; }
+.bob-confirmed-diagnostic li + li { margin-top: 3px; }
+.bob-pathway { padding-top: 13px; border-top: 1px dashed #d8d5cc; }
+.bob-path-row { display: grid; grid-template-columns: 0.85fr 1fr 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #e5e3dc; }
+.bob-path-row span { display: block; margin-bottom: 3px; color: #7c8188; font-family: "IBM Plex Mono", "Noto Sans SC", monospace; font-size: 9px; letter-spacing: 0.055em; text-transform: uppercase; }
+.bob-path-row strong { display: block; color: #132a3d; font-size: 11px; font-weight: 600; line-height: 1.45; }
 .manifest-section { position: relative; border: 1px solid #e1dfd8; border-radius: 0 !important; background: #fff; margin-bottom: 16px; padding: 0 14px 14px; }
 .manifest-section::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 38px; background: var(--section-accent, #132a3d); }
 .manifest-section-head { display: flex; align-items: center; gap: 9px; min-height: 48px; margin: 0 -14px 12px; padding: 0 14px; border-bottom: 1px dashed #d8d5cc; }
@@ -168,6 +197,10 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
   .brand-wordmark { font-size: 15px; }
   .brand-route-node { display: none; }
   .bob-memo-stamp { display: none; }
+  .bob-diagnostic-grid, .bob-path-row { grid-template-columns: 1fr; }
+  .assessment-decision-strip { align-items:flex-start; flex-direction:column; }
+  .assessment-signal-count { justify-items:start; padding:0; border-left:0; }
+  .bob-report-grid { grid-template-columns:1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

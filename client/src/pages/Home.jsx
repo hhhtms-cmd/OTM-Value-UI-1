@@ -74,51 +74,9 @@ const GTM_PAIN_IDS = {
 const GTM_TRIGGER_PAIN_ID = "cx_2";
 
 const BOB_COPY = {
-  en: {
-    label: "Bob AI · Discovery Copilot",
-    title: "Describe what is slowing your transportation operation down.",
-    intro: "I will turn your words into OTM value signals, then ask only the next question that matters.",
-    placeholder: "For example: We pay for too many expedited shipments and planners rebuild plans in spreadsheets every day.",
-    analyze: "Identify value signals",
-    applying: "Add to assessment",
-    demo: "Bob AI discovery workflow",
-    evidence: "Signals Bob identified",
-    noSignals: "I need one concrete operational symptom to map it to an OTM value driver.",
-    question: "Recommended follow-up",
-    ready: "Ready for a Bob AI connection",
-    applied: "Added to your assessment",
-    suggestion: "Try: “We use Excel to plan shipments and keep paying for expedited freight.”",
-  },
-  es: {
-    label: "Bob AI · Copiloto de Descubrimiento",
-    title: "Describa qué está frenando su operación de transporte.",
-    intro: "Convertiré sus palabras en señales de valor de OTM y haré solo la siguiente pregunta importante.",
-    placeholder: "Por ejemplo: Pagamos demasiados envíos urgentes y los planificadores reconstruyen planes en hojas de cálculo cada día.",
-    analyze: "Identificar señales de valor",
-    applying: "Agregar a la evaluación",
-    demo: "Flujo de descubrimiento Bob AI",
-    evidence: "Señales identificadas por Bob",
-    noSignals: "Necesito un síntoma operativo concreto para asociarlo a un impulsor de valor de OTM.",
-    question: "Seguimiento recomendado",
-    ready: "Listo para una conexión con Bob AI",
-    applied: "Agregado a su evaluación",
-    suggestion: "Pruebe: “Usamos Excel para planificar envíos y seguimos pagando fletes urgentes.”",
-  },
-  zh: {
-    label: "Bob AI · 价值发现助手",
-    title: "请描述现在最拖慢运输运营的一件事。",
-    intro: "我会将你的描述转换为 OTM 价值信号，并只提出最值得继续确认的问题。",
-    placeholder: "例如：我们加急运输越来越多，计划人员每天都在 Excel 里反复修改运输计划。",
-    analyze: "识别价值信号",
-    applying: "加入评估",
-    demo: "Bob AI Discovery 工作流",
-    evidence: "Bob 已识别的信号",
-    noSignals: "请补充一个具体的运营现象，我才能将它对应到 OTM 的价值驱动。",
-    question: "建议继续确认",
-    ready: "已准备连接 Bob AI",
-    applied: "已加入当前评估",
-    suggestion: "可以试试：我们用 Excel 规划运输，而且一直在支付加急运费。",
-  },
+  en: { label: "Bob AI · Transportation Value Diagnostic", title: "Start a transportation value diagnostic.", intro: "Describe one operating symptom. We will clarify what it means before discussing any solution path.", placeholder: "For example: We pay for too many expedited shipments and planners rebuild plans in spreadsheets every day.", analyze: "Start initial diagnostic", applying: "Add to assessment", demo: "Customer discovery protocol", evidence: "Symptoms I heard", noSignals: "I need one concrete operational symptom to map it to an OTM value driver.", question: "The one question worth answering next", ready: "Guided diagnostic", applied: "Added to your assessment", suggestion: "Try: “We use Excel to plan shipments and keep paying for expedited freight.”", confirm: "Confirm symptoms & continue", confirmed: "Customer-confirmed diagnostic", impacts: "Likely business impact", rootCause: "Hypothesis to validate", data: "Facts to validate in the working session", diagnosis: "Initial value diagnosis", diagnosisCopy: "There is a meaningful transportation value opportunity. Validate the facts below before quantifying impact or selecting a solution path.", path: "Capability paths worth evaluating", showPath: "See capability paths after diagnosis", pathIntro: "These are not preset answers. Each path below is linked to a confirmed symptom and a hypothesis that still needs data validation.", fact: "Confirmed symptom", reasoning: "Why it may matter" },
+  es: { label: "Bob AI · Diagnóstico de Valor de Transporte", title: "Inicie un diagnóstico de valor de transporte.", intro: "Describa un síntoma operativo. Aclararemos lo que significa antes de hablar de una solución.", placeholder: "Por ejemplo: Pagamos demasiados envíos urgentes y los planificadores reconstruyen planes en hojas de cálculo cada día.", analyze: "Iniciar diagnóstico inicial", applying: "Agregar a la evaluación", demo: "Protocolo de descubrimiento del cliente", evidence: "Síntomas que entendí", noSignals: "Necesito un síntoma operativo concreto para asociarlo a un impulsor de valor de OTM.", question: "La única pregunta que conviene responder ahora", ready: "Diagnóstico guiado", applied: "Agregado a su evaluación", suggestion: "Pruebe: “Usamos Excel para planificar envíos y seguimos pagando fletes urgentes.”", confirm: "Confirmar síntomas y continuar", confirmed: "Diagnóstico confirmado por el cliente", impacts: "Impacto potencial en el negocio", rootCause: "Hipótesis por validar", data: "Hechos por validar en la sesión de trabajo", diagnosis: "Diagnóstico inicial de valor", diagnosisCopy: "Existe una oportunidad de valor de transporte relevante. Valide los hechos siguientes antes de cuantificar el impacto o elegir una ruta de solución.", path: "Rutas de capacidad que vale la pena evaluar", showPath: "Ver rutas de capacidad después del diagnóstico", pathIntro: "No son respuestas predefinidas. Cada ruta se vincula con un síntoma confirmado y una hipótesis que aún requiere validación de datos.", fact: "Síntoma confirmado", reasoning: "Por qué puede importar" },
+  zh: { label: "Bob AI · 运输价值问诊", title: "开始一次运输价值问诊。", intro: "先用自己的话描述一个运营现象；我们先厘清它代表什么，再讨论任何解决路径。", placeholder: "例如：我们加急运输越来越多，计划人员每天都在 Excel 里反复修改运输计划。", analyze: "开始初步问诊", applying: "加入评估", demo: "客户价值发现流程", evidence: "我听到的现象", noSignals: "请补充一个具体的运营现象，我才能将它对应到 OTM 的价值驱动。", question: "最值得继续确认的问题", ready: "引导式问诊", applied: "已加入当前评估", suggestion: "可以试试：我们用 Excel 规划运输，而且一直在支付加急运费。", confirm: "确认现象并继续问诊", confirmed: "客户已确认的初步诊断", impacts: "可能造成的业务影响", rootCause: "需要验证的根因假设", data: "工作会议中需要验证的事实", diagnosis: "初步价值诊断", diagnosisCopy: "存在值得深入了解的运输价值机会。在量化影响或选择解决路径前，请先验证以下关键事实。", path: "建议进一步评估的能力路径", showPath: "在完成诊断后查看能力路径", pathIntro: "这不是预设答案。以下路径均对应客户已确认的现象，以及仍需数据验证的根因假设。", fact: "已确认的业务现象", reasoning: "为什么值得关注" },
 };
 
 function getBobSignals(input) {
@@ -163,6 +121,35 @@ function getBobQuestion(signalIds, lang) {
   };
   const copy = questions[lang] || questions.en;
   return copy[signalIds[0]] || copy.default;
+}
+
+function getBobDiagnostic(signalIds, lang) {
+  const catalog = {
+    en: {
+      cost: { impact: "Unplanned freight cost and weaker control of premium spend.", root: "Planning, carrier selection, or cost rules may not be operating under consistent optimization logic.", data: "Share expedited spend and accessorial charges as a percentage of annual freight spend." },
+      efficiency: { impact: "Planner capacity is consumed by repetitive manual work and handoffs.", root: "Planning, tendering, and audit activities may be fragmented across tools and teams.", data: "Estimate weekly planner hours spent in spreadsheets, email, and manual shipment changes." },
+      service: { impact: "Late exception awareness can put service performance and customer trust at risk.", root: "Transport events may not be continuously visible or connected to an actionable exception process.", data: "Measure how long it typically takes to discover and act on an in-transit exception." },
+      decision: { impact: "Leaders may be unable to see where transportation value is being gained or lost.", root: "Transportation data and performance measures may not yet support comparable decisions across lanes and carriers.", data: "Identify the existing carrier, lane, and cost information available for review." },
+      complexity: { impact: "Complexity can make cost, service, and compliance decisions inconsistent across the network.", root: "Mode-, country-, or business-unit processes may be running in disconnected operating models.", data: "Confirm the number of modes, countries, business units, and external partners involved." },
+    },
+    es: {
+      cost: { impact: "Costo de flete no planificado y menor control del gasto premium.", root: "La planificación, selección de transportistas o reglas de costo podrían no operar con una lógica de optimización consistente.", data: "Comparta el gasto urgente y los cargos accesorios como porcentaje del gasto anual de flete." },
+      efficiency: { impact: "La capacidad de los planificadores se consume en trabajo manual repetitivo y traspasos.", root: "La planificación, licitación y auditoría podrían estar fragmentadas entre herramientas y equipos.", data: "Estime las horas semanales dedicadas a hojas de cálculo, correo y cambios manuales." },
+      service: { impact: "Detectar excepciones tarde puede poner en riesgo el servicio y la confianza del cliente.", root: "Los eventos de transporte podrían no ser visibles de forma continua ni estar conectados a un proceso de excepción accionable.", data: "Mida cuánto tarda normalmente en detectar y actuar sobre una excepción en tránsito." },
+      decision: { impact: "Los líderes podrían no ver dónde se gana o pierde valor de transporte.", root: "Los datos y medidas de desempeño podrían no permitir decisiones comparables entre rutas y transportistas.", data: "Identifique la información disponible de transportistas, rutas y costos." },
+      complexity: { impact: "La complejidad puede volver inconsistentes las decisiones de costo, servicio y cumplimiento.", root: "Los procesos por modo, país o unidad de negocio podrían operar en modelos desconectados.", data: "Confirme el número de modos, países, unidades de negocio y socios externos." },
+    },
+    zh: {
+      cost: { impact: "计划外运费增加，且高价运输与附加费用的控制力不足。", root: "运输计划、承运商选择或费用规则可能尚未在一致的优化逻辑下运行。", data: "确认加急运费与附加费用分别占年度运费的比例。" },
+      efficiency: { impact: "计划人员的能力被重复的手工操作和跨团队交接持续占用。", root: "计划、派单和运费审核活动可能仍分散在不同工具和团队之间。", data: "估算计划人员每周花在 Excel、邮件和手动运输变更上的时间。" },
+      service: { impact: "较晚发现异常，可能会影响服务表现与客户信任。", root: "运输事件可能未被持续可见地跟踪，也没有连接到可执行的异常处理机制。", data: "确认运输异常发生后，通常多久才能被发现并采取行动。" },
+      decision: { impact: "管理者可能无法清晰看到运输价值在哪些环节被创造或流失。", root: "运输数据和绩效指标可能还不足以支持跨线路、跨承运商的可比决策。", data: "梳理目前可用于分析的承运商、线路与运输成本信息。" },
+      complexity: { impact: "网络复杂性可能让成本、服务和合规决策在不同场景下缺乏一致性。", root: "不同运输方式、国家或业务单元可能仍在相互割裂的运营模式下工作。", data: "确认涉及的运输方式、国家、业务单元和外部合作伙伴数量。" },
+    },
+  };
+  const categories = Object.keys(PAIN_IDS).filter((cat) => PAIN_IDS[cat].some((id) => signalIds.includes(id)));
+  const selected = catalog[lang] || catalog.en;
+  return { categories, impacts: categories.map((cat) => selected[cat].impact), roots: categories.map((cat) => selected[cat].root), data: categories.map((cat) => selected[cat].data) };
 }
 
 const INDUSTRY_IDS = ["ind_manuf", "ind_retail", "ind_energy", "ind_travel", "ind_tech", "ind_food", "ind_other"];
@@ -943,6 +930,8 @@ export default function OTMValueAssessment() {
   const [bobSignalIds, setBobSignalIds] = useState([]);
   const [bobAnalyzed, setBobAnalyzed] = useState(false);
   const [bobApplied, setBobApplied] = useState(false);
+  const [bobConfirmed, setBobConfirmed] = useState(false);
+  const [bobPathVisible, setBobPathVisible] = useState(false);
 
   const t = (key) => (T[lang] && T[lang][key] !== undefined ? T[lang][key] : key);
 
@@ -1015,6 +1004,7 @@ export default function OTMValueAssessment() {
     if (valueIntensity >= 0.03 || (maturityGap >= 2 && numChallenges >= 6)) return "strong";
     return "potential";
   }, [maturity, numChallenges, valueIntensity, maturityGap]);
+  const bobDiagnostic = useMemo(() => getBobDiagnostic(bobSignalIds, lang), [bobSignalIds, lang]);
 
   function toggleSelected(id) {
     setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
@@ -1023,6 +1013,18 @@ export default function OTMValueAssessment() {
     setBobSignalIds(getBobSignals(bobInput));
     setBobAnalyzed(true);
     setBobApplied(false);
+    setBobConfirmed(false);
+    setBobPathVisible(false);
+  }
+  function toggleBobSignal(id) {
+    setBobSignalIds((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]));
+    setBobConfirmed(false);
+    setBobPathVisible(false);
+    setBobApplied(false);
+  }
+  function confirmBobDiagnostic() {
+    setBobConfirmed(true);
+    setBobPathVisible(false);
   }
   function applyBobSignals() {
     setSelected((prev) => Array.from(new Set([...prev, ...bobSignalIds])));
@@ -1132,6 +1134,11 @@ export default function OTMValueAssessment() {
   /* ---- STEP 0 ---- */
   function renderStep0() {
     const bob = BOB_COPY[lang] || BOB_COPY.en;
+    const assessmentGuidance = lang === "zh"
+      ? "标记阻碍后，系统会把它们映射到可量化的价值驱动，并影响后续诊断。"
+      : lang === "es"
+        ? "Al confirmar los obstáculos, el sistema los vincula con impulsores de valor cuantificables y orienta el diagnóstico posterior."
+        : "Confirming obstacles links them to measurable value drivers and shapes the diagnostic that follows.";
     return (
       <div>
         <h1 style={{ color: C.ink, fontFamily: SANS }} className="text-2xl font-bold mb-1 tracking-tight">{t("step0Title")}</h1>
@@ -1149,13 +1156,13 @@ export default function OTMValueAssessment() {
             </div>
           </div>
           <div className="bob-memo-body">
-            <div className="bob-memo-label" style={{ fontFamily: MONO }}>INTAKE NOTE / VALUE SIGNAL CAPTURE</div>
+            <div className="bob-memo-label" style={{ fontFamily: MONO }}>INTAKE NOTE / SYMPTOM · IMPACT · HYPOTHESIS</div>
             <h2 style={{ color: C.ink }} className="max-w-xl text-lg font-semibold tracking-tight">{bob.title}</h2>
             <p style={{ color: C.mist }} className="max-w-2xl text-sm leading-relaxed mt-1.5">{bob.intro}</p>
             <div className="bob-entry mt-4 rounded p-3">
               <textarea
                 value={bobInput}
-                onChange={(event) => { setBobInput(event.target.value); setBobAnalyzed(false); setBobApplied(false); }}
+                onChange={(event) => { setBobInput(event.target.value); setBobAnalyzed(false); setBobApplied(false); setBobConfirmed(false); setBobPathVisible(false); }}
                 placeholder={bob.placeholder}
                 rows={3}
                 className="w-full resize-y bg-transparent text-sm outline-none"
@@ -1175,15 +1182,53 @@ export default function OTMValueAssessment() {
                   <>
                     <div style={{ color: C.mist, fontFamily: MONO }} className="text-[10px] uppercase tracking-wide">{bob.evidence}</div>
                     <div className="mt-2 flex flex-wrap gap-2">
-                      {bobSignalIds.map((id) => <span key={id} style={{ backgroundColor: C.signalSoft, color: C.signal, borderColor: "#E3C296" }} className="border rounded-full px-2.5 py-1 text-xs font-medium">{t(id)}</span>)}
+                      {bobSignalIds.map((id) => <button key={id} onClick={() => toggleBobSignal(id)} style={{ backgroundColor: C.signalSoft, color: C.signal, borderColor: "#E3C296" }} className="border rounded-full px-2.5 py-1 text-xs font-medium">{t(id)} <span className="opacity-55">×</span></button>)}
                     </div>
                     <div style={{ borderColor: C.line }} className="mt-3 border-t pt-3">
-                      <div style={{ color: C.mist, fontFamily: MONO }} className="text-[10px] uppercase tracking-wide">{bob.question}</div>
-                      <p style={{ color: C.ink }} className="mt-1 text-sm font-medium">{getBobQuestion(bobSignalIds, lang)}</p>
+                      <div className="bob-diagnostic-grid mt-1">
+                        <div className="bob-diagnostic-cell">
+                          <div className="bob-diagnostic-label">01 / {bob.impacts}</div>
+                          <p>{bobDiagnostic.impacts[0]}</p>
+                        </div>
+                        <div className="bob-diagnostic-cell">
+                          <div className="bob-diagnostic-label">02 / {bob.rootCause}</div>
+                          <p>{bobDiagnostic.roots[0]}</p>
+                        </div>
+                      </div>
+                      <div className="bob-question-block mt-3">
+                        <div style={{ color: C.mist, fontFamily: MONO }} className="text-[10px] uppercase tracking-wide">03 / {bob.question}</div>
+                        <p style={{ color: C.ink }} className="mt-1 text-sm font-medium">{getBobQuestion(bobSignalIds, lang)}</p>
+                      </div>
                     </div>
-                    <button onClick={applyBobSignals} style={{ backgroundColor: bobApplied ? C.laneSoft : C.signal }} className="mt-3 flex items-center gap-1.5 rounded px-3 py-2 text-xs font-semibold text-white">
-                      <Check size={13} /> {bobApplied ? bob.applied : `${bob.applying} · ${bobSignalIds.length}`}
-                    </button>
+                    {!bobConfirmed ? (
+                      <button onClick={confirmBobDiagnostic} style={{ backgroundColor: C.signal }} className="mt-3 flex items-center gap-1.5 rounded px-3 py-2 text-xs font-semibold text-white"><Check size={13} /> {bob.confirm}</button>
+                    ) : (
+                      <div className="bob-confirmed-diagnostic mt-4">
+                        <div className="bob-diagnostic-label">{bob.confirmed}</div>
+                        <div className="mt-2 grid gap-3">
+                          <div><div className="bob-mini-label">{bob.data}</div><ul>{bobDiagnostic.data.map((item) => <li key={item}>{item}</li>)}</ul></div>
+                          <div><div className="bob-mini-label">{bob.diagnosis}</div><p>{bob.diagnosisCopy}</p></div>
+                        </div>
+                        {!bobPathVisible ? (
+                          <button onClick={() => setBobPathVisible(true)} style={{ color: C.lane, borderColor: C.lane }} className="mt-3 flex items-center gap-1.5 rounded border px-3 py-2 text-xs font-semibold"><ArrowRight size={13} /> {bob.showPath}</button>
+                        ) : (
+                          <div className="bob-pathway mt-4">
+                            <div className="bob-mini-label">{bob.path}</div>
+                            <p className="mt-1">{bob.pathIntro}</p>
+                            <div className="mt-3 grid gap-2">
+                              {bobDiagnostic.categories.map((cat) => (
+                                <div key={cat} className="bob-path-row">
+                                  <div><span>{bob.fact}</span><strong>{PAIN_IDS[cat].filter((id) => bobSignalIds.includes(id)).map((id) => t(id)).join(" · ")}</strong></div>
+                                  <div><span>{bob.reasoning}</span><strong>{bobDiagnostic.roots[bobDiagnostic.categories.indexOf(cat)]}</strong></div>
+                                  <div><span>{bob.path}</span><strong>{VALUE_TREE[cat][lang].capability}</strong></div>
+                                </div>
+                              ))}
+                            </div>
+                            <button onClick={applyBobSignals} style={{ backgroundColor: bobApplied ? C.laneSoft : C.signal }} className="mt-3 flex items-center gap-1.5 rounded px-3 py-2 text-xs font-semibold text-white"><Check size={13} /> {bobApplied ? bob.applied : `${bob.applying} · ${bobSignalIds.length}`}</button>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </>
                 ) : (
                   <p style={{ color: C.ink }} className="text-sm">{bob.noSignals}</p>
@@ -1215,6 +1260,11 @@ export default function OTMValueAssessment() {
           </button>
         </div>
 
+        <div className="assessment-decision-strip mb-5">
+          <div><span>ASSESSMENT RULE / 01</span><strong>{assessmentGuidance}</strong></div>
+          <div className="assessment-signal-count"><span>CONFIRMED SIGNALS</span><b>{String(selected.length + gtmSelected.length).padStart(2, "0")}</b></div>
+        </div>
+
         {CATEGORIES.map((cat, catIndex) => (
           <div key={cat.id} style={{ "--section-accent": cat.accent }} className="manifest-section">
             <div className="manifest-section-head">
@@ -1229,11 +1279,11 @@ export default function OTMValueAssessment() {
                   <button
                     key={pid}
                     onClick={() => toggleSelected(pid)}
-                    style={{ borderColor: isSel ? cat.accent : C.line, backgroundColor: isSel ? C.paper : C.card }}
+                    style={{ borderColor: isSel ? C.signal : C.line, backgroundColor: isSel ? "#FFF9F2" : C.card }}
                     className="manifest-row w-full text-left flex items-start gap-2.5 transition"
                   >
                     <span
-                      style={{ backgroundColor: isSel ? cat.accent : "transparent", borderColor: isSel ? cat.accent : "#C9C6BC" }}
+                      style={{ backgroundColor: isSel ? C.signal : "transparent", borderColor: isSel ? C.signal : "#C9C6BC" }}
                       className="mt-0.5 flex-shrink-0 w-4 h-4 rounded-sm border flex items-center justify-center"
                     >
                       {isSel && <Check size={11} color="white" />}
@@ -1581,6 +1631,27 @@ export default function OTMValueAssessment() {
     );
   }
 
+  function renderBobDiscoverySummary() {
+    const bob = BOB_COPY[lang] || BOB_COPY.en;
+    if (!bobConfirmed || bobSignalIds.length === 0) return null;
+    return (
+      <section className="bob-report-summary mb-6">
+        <div className="bob-report-heading"><span>BOB AI / CUSTOMER DIAGNOSTIC</span><strong>{bob.confirmed}</strong></div>
+        <div className="bob-report-grid">
+          <div><span>{bob.fact}</span><p>{bobSignalIds.map((id) => t(id)).join(" · ")}</p></div>
+          <div><span>{bob.impacts}</span><p>{bobDiagnostic.impacts.join(" ")}</p></div>
+          <div><span>{bob.rootCause}</span><p>{bobDiagnostic.roots.join(" ")}</p></div>
+          <div><span>{bob.data}</span><p>{bobDiagnostic.data.join(" ")}</p></div>
+        </div>
+        <div className="bob-report-verdict"><span>{bob.diagnosis}</span><p>{bob.diagnosisCopy}</p></div>
+        <div className="bob-report-paths">
+          <span>{bob.path}</span>
+          {bobDiagnostic.categories.map((cat) => <p key={cat}><strong>{VALUE_TREE[cat][lang].capability}</strong><em>{bobDiagnostic.roots[bobDiagnostic.categories.indexOf(cat)]}</em></p>)}
+        </div>
+      </section>
+    );
+  }
+
   /* ---- printable report (window.print() is unreliable inside the
      sandboxed WebView the mobile app uses to render artifacts, so we
      generate a standalone HTML file and let the browser download it —
@@ -1588,6 +1659,7 @@ export default function OTMValueAssessment() {
      from there, which is not subject to the same restriction) ---- */
   function generateReportHtml() {
     const locale = lang === "zh" ? "zh-CN" : lang === "es" ? "es-ES" : "en-US";
+    const bob = BOB_COPY[lang] || BOB_COPY.en;
     const rowHtml = (arr) =>
       arr
         .map(
@@ -1639,6 +1711,19 @@ export default function OTMValueAssessment() {
           <p style="font-size:11px;color:${C.mist};margin:12px 0 0;"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${OTM_TARGET_MARKER};margin-right:6px;"></span><strong style="color:${C.ink};">${fit.target}</strong>：${fit.detail}</p>
         </section>`;
     };
+    const bobReportHtml = bobConfirmed && bobSignalIds.length > 0 ? `
+      <section style="border:1px solid ${C.line};border-left:4px solid ${C.signal};padding:14px;margin:18px 0;background:${C.paper};">
+        <div style="color:${C.signal};font-family:ui-monospace,monospace;font-size:10px;font-weight:600;letter-spacing:.08em;">BOB AI / CUSTOMER DIAGNOSTIC</div>
+        <strong style="display:block;color:${C.ink};font-size:14px;margin-top:4px;">${bob.confirmed}</strong>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+          <div><span style="color:${C.mist};font-size:10px;text-transform:uppercase;">${bob.fact}</span><p style="margin:4px 0;font-size:12px;">${bobSignalIds.map((id) => t(id)).join(" · ")}</p></div>
+          <div><span style="color:${C.mist};font-size:10px;text-transform:uppercase;">${bob.impacts}</span><p style="margin:4px 0;font-size:12px;">${bobDiagnostic.impacts.join(" ")}</p></div>
+          <div><span style="color:${C.mist};font-size:10px;text-transform:uppercase;">${bob.rootCause}</span><p style="margin:4px 0;font-size:12px;">${bobDiagnostic.roots.join(" ")}</p></div>
+          <div><span style="color:${C.mist};font-size:10px;text-transform:uppercase;">${bob.data}</span><p style="margin:4px 0;font-size:12px;">${bobDiagnostic.data.join(" ")}</p></div>
+        </div>
+        <div style="border-top:1px dashed ${C.line};margin-top:12px;padding-top:10px;"><span style="color:${C.mist};font-size:10px;text-transform:uppercase;">${bob.diagnosis}</span><p style="margin:4px 0;font-size:12px;">${bob.diagnosisCopy}</p></div>
+        <div style="border-top:1px dashed ${C.line};margin-top:12px;padding-top:10px;"><span style="color:${C.mist};font-size:10px;text-transform:uppercase;">${bob.path}</span>${bobDiagnostic.categories.map((cat) => `<p style="margin:5px 0;font-size:12px;"><strong>${VALUE_TREE[cat][lang].capability}</strong><br /><em style="color:${C.mist};">${bobDiagnostic.roots[bobDiagnostic.categories.indexOf(cat)]}</em></p>`).join("")}</div>
+      </section>` : "";
     const gtmHtml = gtmEnabled
       ? `
         <hr style="border:none;border-top:1px dashed ${C.line};margin:28px 0;" />
@@ -1672,6 +1757,7 @@ export default function OTMValueAssessment() {
     <p style="margin:8px 0;">${t(`verdict_${verdict}_desc`)}</p>
     <p style="font-style:italic;color:${C.mist};">${t(`verdict_${verdict}_next`)}</p>
   </div>
+  ${bobReportHtml}
   ${gtmEnabled ? `<p style="color:${C.gtm};font-size:13px;font-weight:600;">${t("gtmOpportunityBadge")}</p>` : ""}
   <h2 style="color:${C.mist};font-size:12px;text-transform:uppercase;letter-spacing:0.05em;">${t("companyProfileLabel")}</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
@@ -1743,6 +1829,8 @@ export default function OTMValueAssessment() {
             </div>
           )}
         </div>
+
+        {renderBobDiscoverySummary()}
 
         {maturity !== null && (
           <div className="mb-6">
@@ -1862,7 +1950,7 @@ export default function OTMValueAssessment() {
             <div className="min-w-0">
               <div className="brand-kicker">OTM / ORACLE TRANSPORTATION MANAGEMENT</div>
               <div className="brand-wordmark">{t("appTitle")}</div>
-              <div className="brand-route-node" aria-hidden="true"><i /><span /><b /></div>
+              <div className="brand-route-node" aria-hidden="true"><i /><span /><b /><i /></div>
             </div>
           </div>
           <div className="flex items-center gap-5">
